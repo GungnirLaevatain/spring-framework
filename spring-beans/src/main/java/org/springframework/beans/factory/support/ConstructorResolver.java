@@ -402,6 +402,7 @@ class ConstructorResolver {
 
 		String factoryBeanName = mbd.getFactoryBeanName();
 		if (factoryBeanName != null) {
+			// 若存在对应的FactoryBean，则使用FactoryBean进行生成
 			if (factoryBeanName.equals(beanName)) {
 				throw new BeanDefinitionStoreException(mbd.getResourceDescription(), beanName,
 						"factory-bean reference points back to the same bean definition");
@@ -415,6 +416,7 @@ class ConstructorResolver {
 		}
 		else {
 			// It's a static factory method on the bean class.
+			// 或者使用该类中的静态工厂方法进行构建
 			if (!mbd.hasBeanClass()) {
 				throw new BeanDefinitionStoreException(mbd.getResourceDescription(), beanName,
 						"bean definition declares neither a bean class nor a factory-bean reference");
