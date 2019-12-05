@@ -1220,7 +1220,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 
 		// Preferred constructors for default construction?
-		// 若候选的构造器为空，则尝试获取默认的构造器
+		// 若候选的构造器为空，则尝试获取指定的首选构造器
 		ctors = mbd.getPreferredConstructors();
 		if (ctors != null) {
 			return autowireConstructor(beanName, mbd, ctors, null);
